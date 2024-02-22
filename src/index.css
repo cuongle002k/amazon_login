@@ -5,4 +5,10 @@
   html{
     font-family: 'Arial','sans-serif';
   }
+  .text:after,
+.text:before{
+    content:"\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+    text-decoration:line-through;
+    color:'gray'
+}
 }

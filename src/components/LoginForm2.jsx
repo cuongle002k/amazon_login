@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {users} from '../users';
 import { useNavigate } from 'react-router-dom';
+import { CiWarning } from "react-icons/ci";
 export default function LoginForm2({ currentStep, formData, setCurrentStep, setFormData }) {
   const navigate=useNavigate();
   const [password, setPassword] = useState(formData.password);
@@ -33,26 +34,38 @@ export default function LoginForm2({ currentStep, formData, setCurrentStep, setF
   };
 
   return (
-    <>
-     <div className='w-[350px] h-[439px]
-    border-2 border-gray-400 p-4
-    rounded-lg'>
-       {!isPassword && (
-          <div className='pb-2'>
-          <div className="modal_error  rounded-xl border-2 inline-block border-red-500 p-2">
-                <h2 className='text-base text-red-600'>Incorrect email password.</h2>
-                <p className='text-sm'>Make sure the password you type is correct.</p>
+    <div className='mb-4'>
+    {!isPassword && (
+          <div className="pb-2 mb-4 w-[349px]">
+          <div className="modal_error  rounded-xl border-[1px] drop-shadow-md  border-red-400 p-4">
+            <div className="desc flex gap-3">
+              <CiWarning className="text-red-500 text-4xl" />
+              <div className="desc">
+                <h2 className="text-base text-red-600">There was a problem</h2>
+                <p className="text-sm">
+                Your password is incorrect
+                </p>
               </div>
+            </div>
+          </div>
         </div>
             )}
-      <h2 className='text-2xl pb-4'>Sign In</h2>
+     <div className='w-[350px] h-[439px]
+    border-[1px] border-gray-400 p-4
+    rounded-lg'>
+       
+      <h2 className='text-2xl pb-4'>Sign in</h2>
       <div className="user pb-4">
       <span>{formData.email} </span> 
       <a className='text-blue-600  hover:underline hover:text-red-400' href="#!"> Change</a>
       </div>
       <form onSubmit={handleSubmit}>
         <div className="field">
+          <div className='flex justify-between text-sm'>
           <label className='font-bold pb-2' htmlFor="password">Password</label>
+          <a className='text-blue-600 block hover:underline hover:text-red-400'  href="">Forgot Password?</a>
+          </div>
+    
           <div className='pt-2 pb-4'>
             <input
               type="text"
@@ -84,7 +97,7 @@ export default function LoginForm2({ currentStep, formData, setCurrentStep, setF
        
       </div>
     </div>
-    </>
+    </div>
    
   );
 }
