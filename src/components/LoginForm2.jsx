@@ -26,19 +26,24 @@ export default function LoginForm2({ currentStep, formData, setCurrentStep, setF
       navigate('/home');
     }
 
-    // Update form data (you might not need this step at the end)
+
     setFormData({ ...formData, password }); 
 
-    // Example of what you could do with form data on final submission
     console.log('Final Form Data:', formData); 
   };
 
   return (
-    <div className='w-[350px] h-[439px]
+    <>
+     <div className='w-[350px] h-[439px]
     border-2 border-gray-400 p-4
     rounded-lg'>
        {!isPassword && (
-              <p className="text-red-500 text-sm">Incorrect password</p>
+          <div className='pb-2'>
+          <div className="modal_error  rounded-xl border-2 inline-block border-red-500 p-2">
+                <h2 className='text-base text-red-600'>Incorrect email password.</h2>
+                <p className='text-sm'>Make sure the password you type is correct.</p>
+              </div>
+        </div>
             )}
       <h2 className='text-2xl pb-4'>Sign In</h2>
       <div className="user pb-4">
@@ -79,5 +84,7 @@ export default function LoginForm2({ currentStep, formData, setCurrentStep, setF
        
       </div>
     </div>
+    </>
+   
   );
 }

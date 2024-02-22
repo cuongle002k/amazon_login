@@ -19,7 +19,7 @@ export default function LoginForm1({ currentStep, formData, setCurrentStep, setF
       setIsUser(false);
       return;
     }
-    // Update form data and move to next step
+
     setFormData({ ...formData, email }); 
     setCurrentStep(currentStep + 1);
   };
